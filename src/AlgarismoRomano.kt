@@ -1,6 +1,4 @@
-import java.text.FieldPosition
-
-enum class Romano(var i: Int) {
+enum class Romano(var valorInteiro: Int) {
     I(1),
     V(5),
     X(10),
@@ -10,20 +8,20 @@ enum class Romano(var i: Int) {
     M(1000);
 }
 
-class AlgarismoRomano(var numeros: List<Romano>?) {
+class AlgarismoRomano(var romanos: List<Romano>?) {
 
     fun getValorEmInteiro(position: Int): Int {
-        return this.numeros!!.get(position).i
+        return this.romanos!!.get(position).valorInteiro
     }
 
     fun converterParaInteiro(): Int{
-        if (this.numeros!!.size == 1)
+        if (this.romanos!!.size == 1)
             return this.getValorEmInteiro(0)
         else{
             var qtd = 0
 
-            for (romano in this.numeros!!) {
-                qtd += romano.i
+            for (romano in this.romanos!!) {
+                qtd += romano.valorInteiro
             }
 
             return qtd
