@@ -4,13 +4,13 @@ import org.junit.Test
 class TestaConversor {
 
     @Test
-    fun deveConverterDeNumeroRomanoParaInteiro(): Unit{
-        var numeros: MutableList<Romano> = mutableListOf(Romano.I)
+    fun deveConverterDeNumeroRomanoSimplesParaInteiroSimples(): Unit{
+        var numeros: MutableList<Romano> = mutableListOf(Romano.X)
         var algarismos: List<Romano> = numeros
 
         var romano = AlgarismoRomano(algarismos)
 
-        Assert.assertEquals(1, romano.converterParaInteiro())
+        Assert.assertEquals(10, romano.converterParaInteiro())
     }
 
 }

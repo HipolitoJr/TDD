@@ -1,37 +1,33 @@
-enum class Romano{
-    I,
-    V,
-    X,
-    L,
-    C,
-    D,
-    M
+import java.text.FieldPosition
+
+enum class Romano(var i: Int) {
+    I(1),
+    V(5),
+    X(10),
+    L(50),
+    C(100),
+    D(500),
+    M(1000);
 }
 
-class AlgarismoRomano(
-        var numero: List<Romano>?
-) {
+class AlgarismoRomano(var numeros: List<Romano>?) {
 
-    fun getValorEmInteiro(): Int{
-        when (this.numero){
-            Romano.I -> return 1
-            Romano.V -> return 5
-            Romano.X -> return 10
-            Romano.L -> return 50
-            Romano.C -> return 100
-            Romano.D -> return 500
-            Romano.M -> return 1000
-
-            else -> return -1
-        }
+    fun getValorEmInteiro(position: Int): Int {
+        return this.numeros!!.get(position).i
     }
 
     fun converterParaInteiro(): Int{
-        if (this.numero!!.size == 1)
-            return this.converterParaInteiro()
-        else
-            //TODO:Implementar retorno para mais de 1 algarismo no numero
-            return 0
+        if (this.numeros!!.size == 1)
+            return this.getValorEmInteiro(0)
+        else{
+            var qtd = 0
+
+            for (romano in this.numeros!!) {
+                qtd += romano.i
+            }
+
+            return qtd
+        }
     }
 
 }
